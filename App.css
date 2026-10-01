@@ -1,0 +1,629 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --green: #39ff88;
+  --green-dark: #13b95d;
+  --black: #020504;
+  --panel: rgba(7, 15, 12, 0.68);
+  --border: rgba(57, 255, 136, 0.15);
+  --text: #f1fff7;
+  --muted: #84938b;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: var(--black);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(0, 255, 110, 0.08),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 80% 70%,
+      rgba(0, 255, 140, 0.07),
+      transparent 30%
+    ),
+    #020504;
+}
+
+.nebula {
+  position: fixed;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  opacity: 0.45;
+  z-index: 0;
+}
+
+.nebula-one {
+  background: #064d2b;
+  top: -300px;
+  left: -250px;
+}
+
+.nebula-two {
+  background: #073d26;
+  right: -300px;
+  bottom: -300px;
+}
+
+.stars {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.25;
+  background-image:
+    radial-gradient(circle, white 1px, transparent 1px),
+    radial-gradient(circle, #39ff88 1px, transparent 1px);
+  background-size: 120px 120px, 180px 180px;
+  background-position: 0 0, 60px 70px;
+  z-index: 0;
+}
+
+.navbar {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-ball {
+  font-size: 21px;
+}
+
+.green {
+  color: var(--green);
+}
+
+nav {
+  display: flex;
+  gap: 8px;
+}
+
+nav button {
+  background: transparent;
+  color: var(--muted);
+  border: 0;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+nav button:hover,
+nav button.active {
+  color: var(--green);
+  background: rgba(57, 255, 136, 0.08);
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #a7b4ae;
+  font-size: 13px;
+}
+
+.profile-dot {
+  width: 9px;
+  height: 9px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 12px var(--green);
+}
+
+main {
+  max-width: 1250px;
+  margin: auto;
+  padding: 70px 6% 100px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero {
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.eyebrow,
+.card-label {
+  color: var(--green);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 7vw, 88px);
+  line-height: 0.93;
+  letter-spacing: -5px;
+  margin: 18px 0 24px;
+}
+
+.hero h1 span,
+.page-title span {
+  color: var(--green);
+  text-shadow: 0 0 30px rgba(57, 255, 136, 0.25);
+}
+
+.hero-text {
+  max-width: 440px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.primary-button,
+.secondary-button {
+  padding: 13px 19px;
+  border-radius: 8px;
+  font-weight: 700;
+  border: 1px solid var(--border);
+}
+
+.primary-button {
+  background: var(--green);
+  color: #001108;
+  box-shadow: 0 0 30px rgba(57, 255, 136, 0.15);
+}
+
+.secondary-button {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+}
+
+.hero-orb {
+  width: 320px;
+  height: 320px;
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+
+.orb-ball {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 80px;
+  background: rgba(5, 25, 15, 0.8);
+  border: 1px solid rgba(57, 255, 136, 0.25);
+  box-shadow:
+    0 0 60px rgba(57, 255, 136, 0.15),
+    inset 0 0 50px rgba(57, 255, 136, 0.06);
+}
+
+.orb-ring {
+  position: absolute;
+  border: 1px solid rgba(57, 255, 136, 0.15);
+  border-radius: 50%;
+}
+
+.ring-one {
+  width: 270px;
+  height: 270px;
+}
+
+.ring-two {
+  width: 210px;
+  height: 210px;
+  border-style: dashed;
+  animation: spin 15s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+
+.glass-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 25px;
+  backdrop-filter: blur(25px);
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.25);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.card-header h2 {
+  font-size: 20px;
+  margin-top: 6px;
+}
+
+.live-indicator {
+  color: var(--green);
+  font-size: 10px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.live-indicator span {
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+}
+
+.match {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.competition {
+  color: #68766f;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  width: 220px;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.teams strong {
+  color: white;
+}
+
+.match-status {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.finished {
+  color: var(--green);
+}
+
+.upcoming {
+  color: #89958f;
+}
+
+.card-link {
+  background: none;
+  border: 0;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 15px;
+}
+
+.spotify-logo {
+  color: var(--green);
+  font-size: 25px;
+  text-shadow: 0 0 15px rgba(57, 255, 136, 0.7);
+}
+
+.spotify-player {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 30px 0 25px;
+}
+
+.mini-art {
+  width: 62px;
+  height: 62px;
+  border-radius: 9px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 30%, #39ff88, transparent 25%),
+    linear-gradient(135deg, #062b19, #010b06);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--green);
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.track-info strong {
+  font-size: 14px;
+}
+
+.track-info span,
+.artist {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.spotify-progress,
+.progress {
+  height: 3px;
+  background: #26322d;
+  border-radius: 5px;
+}
+
+.spotify-progress div,
+.progress-fill {
+  width: 38%;
+  height: 100%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+}
+
+.spotify-times,
+.times {
+  display: flex;
+  justify-content: space-between;
+  color: #66736d;
+  font-size: 9px;
+  margin-top: 7px;
+}
+
+.controls,
+.player-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  margin: 18px 0;
+}
+
+.controls button,
+.player-controls button {
+  background: none;
+  border: 0;
+  color: #c8d0cc;
+  font-size: 17px;
+}
+
+.main-play,
+.play-button {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--green) !important;
+  color: #001108 !important;
+  font-size: 15px !important;
+  box-shadow: 0 0 20px rgba(57, 255, 136, 0.18);
+}
+
+.spotify-button {
+  width: 100%;
+  padding: 11px;
+  border-radius: 7px;
+  border: 1px solid rgba(57, 255, 136, 0.2);
+  background: rgba(57, 255, 136, 0.06);
+  color: var(--green);
+  font-weight: 700;
+  font-size: 12px;
+}
+
+.page-section {
+  padding-top: 30px;
+}
+
+.page-title {
+  font-size: clamp(48px, 7vw, 80px);
+  letter-spacing: -4px;
+  margin: 15px 0 35px;
+}
+
+.league-selector {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.league-selector button {
+  white-space: nowrap;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: #87948e;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.league-selector button.selected {
+  background: var(--green);
+  color: #001108;
+  font-weight: 700;
+}
+
+.full-matches {
+  margin-top: 15px;
+  display: grid;
+  gap: 12px;
+}
+
+.match-large {
+  background: var(--panel);
+  padding: 25px;
+  border: 1px solid var(--border);
+  border-radius: 15px;
+}
+
+.match-large .teams {
+  width: 300px;
+  font-size: 17px;
+}
+
+.music-layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 50px;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.album-art {
+  aspect-ratio: 1;
+  max-width: 380px;
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 30% 25%, #39ff88, transparent 15%),
+    radial-gradient(circle at 70% 70%, #0a7540, transparent 20%),
+    linear-gradient(135deg, #02150b, #010604);
+  border: 1px solid rgba(57, 255, 136, 0.25);
+  display: grid;
+  place-items: center;
+  box-shadow: 0 0 100px rgba(57, 255, 136, 0.12);
+}
+
+.album-text {
+  font-size: 80px;
+  font-weight: 900;
+  color: var(--green);
+  text-shadow: 0 0 30px rgba(57, 255, 136, 0.5);
+}
+
+.music-info h2 {
+  font-size: 42px;
+  margin: 12px 0 5px;
+}
+
+.progress {
+  margin-top: 35px;
+}
+
+footer {
+  position: relative;
+  z-index: 2;
+  max-width: 1250px;
+  margin: auto;
+  padding: 25px 6%;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  color: #58645f;
+  font-size: 11px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+  .navbar {
+    padding: 0 20px;
+  }
+
+  nav {
+    display: none;
+  }
+
+  .profile span {
+    display: none;
+  }
+
+  main {
+    padding: 45px 20px 70px;
+  }
+
+  .hero {
+    min-height: auto;
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 58px;
+    letter-spacing: -4px;
+  }
+
+  .hero-orb {
+    width: 100%;
+    height: 260px;
+    margin-top: 20px;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .teams {
+    width: 160px;
+  }
+
+  .music-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .album-art {
+    max-width: 100%;
+  }
+
+  .music-info h2 {
+    font-size: 32px;
+  }
+
+  .match-large .teams {
+    width: 210px;
+  }
+
+  footer {
+    padding: 20px;
+  }
+}
